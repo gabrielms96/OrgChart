@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/OrgChart.Application/OrgChart.Application.csproj" />
+    <Project Path="src/OrgChart.Domain/OrgChart.Domain.csproj" />
+    <Project Path="src/OrgChart.Infrastructure/OrgChart.Infrastructure.csproj" />
+    <Project Path="src/OrgChart.Web/OrgChart.Web.csproj" />
+  </Folder>
+</Solution>
