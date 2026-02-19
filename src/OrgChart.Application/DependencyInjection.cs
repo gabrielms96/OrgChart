@@ -10,9 +10,9 @@ public static class DependencyInjection
     {
         // Services
         services.AddScoped<IDepartmentService, DepartmentService>();
-        //services.AddScoped<IPositionService, PositionService>();
+        services.AddScoped<IPositionService, PositionService>();
         services.AddScoped<IEmployeeService, EmployeeService>();
-        //services.AddScoped<IOrgChartService, OrgChartService>();
+        services.AddScoped<IOrgChartService, OrgChartService>();
 
         // Validators
         services.AddValidatorsFromAssembly(typeof(DependencyInjection).Assembly);
