@@ -1,0 +1,43 @@
+﻿@model OrgChart.Application.DTOs.OrgChartNodeDto
+
+@{
+    int level = ViewBag.Level ?? 0;
+    ViewBag.Level = level;
+}
+
+<div class="org-node level-@(level > 5 ? 5 : level)">
+    <div class="org-node-card">
+        <div class="org-node-name">
+            <i class="bi bi-person-circle"></i> @Model.Name
+        </div>
+        <div class="org-node-position">
+            <i class="bi bi-briefcase"></i> @Model.PositionName
+            <span class="badge bg-secondary ms-1">@Model.PositionLevel</span>
+        </div>
+        <div class="org-node-department">
+            <i class="bi bi-building"></i> @Model.DepartmentName
+        </div>
+        <div class="org-node-email mt-2">
+            <small><i class="bi bi-envelope"></i> @Model.Email</small>
+        </div>
+        @if (Model.Subordinates.Any())
+        {
+            <div class="mt-2">
+                <small class="text-muted">
+                    <i class="bi bi-people"></i> @Model.Subordinates.Count subordinado(s)
+                </small>
+            </div>
+        }
+    </div>
+
+    @if (Model.Subordinates.Any())
+    {
+        <div class="org-children">
+            @foreach (var subordinate in Model.Subordinates.OrderBy(s => s.PositionLevel).ThenBy(s => s.Name))
+            {
+                ViewBag.Level = level + 1;
+                @await Html.PartialAsync("_OrgChartNode", subordinate)
+            }
+        </div>
+    }
+</div>
