@@ -24,7 +24,9 @@ public class OrgChartController : Controller
         return View(result.Data);
     }
 
+    // API endpoint: GET /api/orgchart
     [HttpGet]
+    [Route("api/orgchart")]
     public async Task<IActionResult> GetOrgChartJson()
     {
         var result = await _service.GetOrgChartAsync();
