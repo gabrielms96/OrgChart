@@ -1,0 +1,57 @@
+﻿@model OrgChart.Application.DTOs.EmployeeDto
+
+@{
+    ViewData["Title"] = "Detalhes do Colaborador";
+}
+
+<h1><i class="bi bi-eye"></i> Detalhes do Colaborador</h1>
+
+<div class="card">
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3">Nome</dt>
+            <dd class="col-sm-9">@Model.Name</dd>
+
+            <dt class="col-sm-3">Email</dt>
+            <dd class="col-sm-9">
+                <a href="mailto:@Model.Email">@Model.Email</a>
+            </dd>
+
+            <dt class="col-sm-3">Departamento</dt>
+            <dd class="col-sm-9">@Model.DepartmentName</dd>
+
+            <dt class="col-sm-3">Cargo</dt>
+            <dd class="col-sm-9">
+                @Model.PositionName
+                <span class="badge bg-info ms-2">@Model.PositionLevel</span>
+            </dd>
+
+            <dt class="col-sm-3">Gerente</dt>
+            <dd class="col-sm-9">@(Model.ManagerName ?? "Sem gerente")</dd>
+
+            <dt class="col-sm-3">Subordinados</dt>
+            <dd class="col-sm-9">@Model.SubordinatesCount</dd>
+
+            <dt class="col-sm-3">Data de Admissão</dt>
+            <dd class="col-sm-9">@Model.HireDate.ToString("dd/MM/yyyy")</dd>
+
+            <dt class="col-sm-3">Criado em</dt>
+            <dd class="col-sm-9">@Model.CreatedAt.ToString("dd/MM/yyyy HH:mm")</dd>
+
+            @if (Model.UpdatedAt.HasValue)
+            {
+                <dt class="col-sm-3">Atualizado em</dt>
+                <dd class="col-sm-9">@Model.UpdatedAt.Value.ToString("dd/MM/yyyy HH:mm")</dd>
+            }
+        </dl>
+
+        <div class="d-flex gap-2">
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">
+                <i class="bi bi-pencil"></i> Editar
+            </a>
+            <a asp-action="Index" class="btn btn-secondary">
+                <i class="bi bi-arrow-left"></i> Voltar
+            </a>
+        </div>
+    </div>
+</div>

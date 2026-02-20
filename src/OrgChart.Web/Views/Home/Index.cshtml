@@ -1,8 +1,81 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Início";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="text-center mb-5">
+    <h1 class="display-4"><i class="bi bi-diagram-3"></i> Sistema de Gestão Organizacional</h1>
+    <p class="lead">Gerencie a estrutura hierárquica da sua empresa de forma eficiente</p>
+</div>
+
+<div class="row g-4">
+    <div class="col-md-6 col-lg-3">
+        <div class="card h-100 text-center">
+            <div class="card-body">
+                <i class="bi bi-diagram-3 display-1 text-primary"></i>
+                <h5 class="card-title mt-3">Organograma</h5>
+                <p class="card-text">Visualize a estrutura hierárquica da organização</p>
+                <a asp-controller="OrgChart" asp-action="Index" class="btn btn-primary">
+                    <i class="bi bi-arrow-right-circle"></i> Acessar
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3">
+        <div class="card h-100 text-center">
+            <div class="card-body">
+                <i class="bi bi-people display-1 text-success"></i>
+                <h5 class="card-title mt-3">Colaboradores</h5>
+                <p class="card-text">Gerencie os colaboradores da empresa</p>
+                <a asp-controller="Employee" asp-action="Index" class="btn btn-success">
+                    <i class="bi bi-arrow-right-circle"></i> Acessar
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3">
+        <div class="card h-100 text-center">
+            <div class="card-body">
+                <i class="bi bi-building display-1 text-info"></i>
+                <h5 class="card-title mt-3">Departamentos</h5>
+                <p class="card-text">Administre os departamentos e unidades</p>
+                <a asp-controller="Department" asp-action="Index" class="btn btn-info">
+                    <i class="bi bi-arrow-right-circle"></i> Acessar
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3">
+        <div class="card h-100 text-center">
+            <div class="card-body">
+                <i class="bi bi-briefcase display-1 text-warning"></i>
+                <h5 class="card-title mt-3">Cargos</h5>
+                <p class="card-text">Configure os cargos e níveis hierárquicos</p>
+                <a asp-controller="Position" asp-action="Index" class="btn btn-warning">
+                    <i class="bi bi-arrow-right-circle"></i> Acessar
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mt-5">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title"><i class="bi bi-info-circle"></i> Sobre o Sistema</h5>
+            <p class="card-text">
+                Este sistema permite a gestão completa da estrutura organizacional da empresa, incluindo:
+            </p>
+            <ul class="list-unstyled">
+                <li><i class="bi bi-check-circle text-success"></i> Cadastro de departamentos e cargos</li>
+                <li><i class="bi bi-check-circle text-success"></i> Gerenciamento de colaboradores com hierarquia</li>
+                <li><i class="bi bi-check-circle text-success"></i> Visualização do organograma completo</li>
+                <li><i class="bi bi-check-circle text-success"></i> Validação automática de ciclos na hierarquia</li>
+                <li><i class="bi bi-check-circle text-success"></i> Auditoria com timestamps de criação e atualização</li>
+                <li><i class="bi bi-check-circle text-success"></i> Soft delete para preservação de histórico</li>
+            </ul>
+        </div>
+    </div>
 </div>
