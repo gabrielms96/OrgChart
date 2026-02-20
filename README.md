@@ -129,7 +129,7 @@ OrgChart/
 
 ```bash
 git clone https://github.com/gabrielms96/OrgChart.git
-cd Teste
+cd OrgChart
 ```
 
 ### 2. Configure a Connection String (Opcional)
